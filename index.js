@@ -43,6 +43,32 @@ const checkReq = (inputArr) => {
   });
 };
 
+
+const checkLength=(input,min,max)=>{
+if (input.value.length<3) {
+    showError(input,`${checkInput(input)} is required min ${min} character`)
+}else if (input.value.length>=15){
+    showError(input,"Min 3 char and max 15 char allowed")
+}else{
+    showSuccess(input)
+}
+}
+
+const checkEmail=(input)=>{
+    if (!isValidEmail(input.value)) {
+        showError(input,"Email is Not valid")
+    }
+
+}
+
+const checkConfirmPassword=(input1,input2)=>{
+    if (input1.value===input2.value) {
+        showSuccess(confirmPassword)
+    }else{
+        showError(confirmPassword,"Password Not Match")
+    }
+}
+
 // changing to Capital input fied values
 const checkInput = (input) => {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
@@ -51,6 +77,11 @@ const checkInput = (input) => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   checkReq([username, email, password, confirmPassword]);
+  checkLength(username,3,15)
+  checkLength(password,6,15)
+  checkConfirmPassword(password,confirmPassword)
+  checkEmail(email)
+  
 });
 
 // if (username.value==="") {
