@@ -72,7 +72,7 @@ h2{
 }
 .form-control.success small{
     color:green ;
-    visibility: visible;
+    
 }
 .form button{
     width: 100%;
@@ -93,5 +93,20 @@ h2{
 .form button:hover{
     background-color: black;
     border-color: navy;
+    color: white;
+}
+a .homebtn{
+    width: 100%;
+    background-color: rgb(195, 195, 195);
+    padding: 10px;
+    font-family: var(--font-weight-500);
+    border: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+
+}
+a .homebtn:focus{
+    background-color: navy;
     color: white;
 }
